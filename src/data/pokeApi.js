@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 export const pokeApi = {
-    pokeList: 'https://pokeapi.co/api/v2/pokemon/?limit=15',
+    pokeList: 'https://pokeapi.co/api/v2/pokemon/?limit=151',
 }
 
 export function getData(link){

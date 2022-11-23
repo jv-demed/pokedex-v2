@@ -36,15 +36,18 @@ const SearchBarStyled = styled.div`
     }
 `
 
-export function SearchBar(){
+export function SearchBar({ pokeList, search, setSearch }){
     return(
         <SearchBarStyled className='container'>
             <div className='bar'>
                 <img src={imgs.pokeball} />
-                <input type='text' /*onChange={(e) => setLetterFilter(e.target.value)}*/ />
+                <input type='text' onChange={(e) => setSearch(e.target.value.toLowerCase())} />
             </div>
             <span className='number'>
-                Pokémons encontrados: 10
+                Pokémons encontrados: 
+                {pokeList.filter((poke, i) => {
+                    return poke.name.includes(search) || (i+1).toString().includes(search);
+                }).length}
             </span>
         </SearchBarStyled>
     )
