@@ -44,8 +44,7 @@ export function SearchBar({ pokeList, search, setSearch }){
                 <input type='text' onChange={(e) => setSearch(e.target.value.toLowerCase())} />
             </div>
             <span className='number'>
-                Pokémons encontrados: 
-                {pokeList.filter((poke, i) => {
+                Pokémons encontrados: {pokeList.filter((poke, i) => {
                     return poke.name.includes(search) || (i+1).toString().includes(search);
                 }).length}
             </span>
