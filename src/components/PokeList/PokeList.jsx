@@ -11,6 +11,9 @@ const PokeListStyled = styled.ul`
     gap: 10px;
     justify-content: space-between;
     margin-top: 120px;
+    @media(max-width: 650px){
+        margin-top: 105px;
+    }
 `
 
 export function PokeList(){

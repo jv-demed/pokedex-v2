@@ -18,4 +18,9 @@ export const Globals = createGlobalStyle`
     .container{
         padding: 0 80px;
     }
+    @media(max-width: 650px){
+        .container{
+            padding: 0 10px;
+        }
+    }
 `
