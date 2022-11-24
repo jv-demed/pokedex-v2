@@ -24,9 +24,9 @@ export function PokeList({ pokeList, search }){
                 if(poke.name.includes(search) || (i+1).toString().includes(search)){
                     return(
                         isMobile ?
-                        <PokeBoxMobile key={i} url={poke.url} />
+                        <PokeBoxMobile key={i} pokeName={poke.name} />
                         :
-                        <PokeBox key={i} url={poke.url} />
+                        <PokeBox key={i} pokeName={poke.name} />
                     )
                 }
             })   

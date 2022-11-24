@@ -15,6 +15,10 @@ export const Globals = createGlobalStyle`
     li{
         list-style: none;
     }
+    a{
+        color: ${({ theme }) => theme.basics.black};
+        text-decoration: none;
+    }
     .container{
         padding: 0 80px;
     }

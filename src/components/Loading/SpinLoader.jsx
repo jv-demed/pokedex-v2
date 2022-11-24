@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const SpinLoadingStyled = styled.div`
+const SpinLoaderStyled = styled.div`
     @keyframes rotateSpinLoading{
         0%{
             transform: scale(1) rotate(360deg);
@@ -30,12 +30,12 @@ const SpinLoadingStyled = styled.div`
     }
 `
 
-export function SpinLoading({ size }){
+export function SpinLoader({ size }){
     return(
-        <SpinLoadingStyled size={size}>
+        <SpinLoaderStyled size={size}>
             <div className='loader'>
                 <div className='loader loader-inner' />
             </div>
-        </SpinLoadingStyled>
+        </SpinLoaderStyled>
     )
 }

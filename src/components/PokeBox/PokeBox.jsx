@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import styled from 'styled-components';
-import { getData } from '../../data/pokeApi';
-import { SpinLoading } from '../Loading/SpinLoading';
+import { getPokemon } from '../../data/pokeApi';
+import { SpinLoader } from '../Loading/SpinLoader';
 import { TypeBox } from './TypeBox';
 import { firstUpperCase } from '../../scripts/stringFormatting';
 
@@ -33,36 +34,38 @@ const PokeBoxStyled = styled.li`
     }
 `
 
-export function PokeBox({ url }){
+export function PokeBox({ pokeName }){
 
-    const poke = getData(url);
+    const poke = getPokemon(pokeName);
     const name = !poke ? '' : firstUpperCase(poke.name);
     const id = !poke ? '' : poke.id;
     const sprite = !poke ? '' : poke.sprites.other['official-artwork'].front_default;
     const types = !poke ? [] : poke.types;
 
-    if(!poke){
+    if(poke){
         return(
             <PokeBoxStyled>
-                <SpinLoading size='50px' />
+                <Link href={poke.name}>
+                    <div className="infoDex">
+                        <span>{name}</span>
+                        <span className='number'>#{id}</span>
+                    </div>
+                    <img src={sprite} />
+                    <div className='types'>
+                        {types.map((type, i) => {
+                            return(
+                                <TypeBox key={name+'Type'+(i+1)} name={type.type.name} />
+                            )
+                        })}
+                    </div>
+                </Link>
+            </PokeBoxStyled>
+        )
+    }else{
+        return(
+            <PokeBoxStyled>
+                <SpinLoader size='50px' />
             </PokeBoxStyled>
         )
     }
-
-    return(
-        <PokeBoxStyled>
-            <div className="infoDex">
-                <span>{name}</span>
-                <span className='number'>#{id}</span>
-            </div>
-            <img src={sprite} />
-            <div className='types'>
-                {types.map((type, i) => {
-                    return(
-                        <TypeBox key={name+'Type'+(i+1)} name={type.type.name} />
-                    )
-                })}
-            </div>
-        </PokeBoxStyled>
-    )
 }
