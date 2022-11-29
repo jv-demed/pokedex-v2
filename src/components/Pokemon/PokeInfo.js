@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { firstUpperCase } from '../../scripts/stringFormatting';
 
 const PokeInfoStyled = styled.div`
+    align-items: center;
+    flex-direction: column;
+    display: flex;
     margin-top: 80px;
 `
 

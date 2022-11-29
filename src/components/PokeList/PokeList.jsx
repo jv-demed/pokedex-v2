@@ -8,10 +8,8 @@ const PokeListStyled = styled.ul`
     flex-wrap: wrap;
     gap: 10px;
     justify-content: space-between;
-    margin-top: 120px;
-    @media(max-width: 650px){
-        margin-top: 105px;
-    }
+    margin-top: 93px;
+    padding-top: 15px;
 `
 
 export function PokeList({ pokeList, search }){

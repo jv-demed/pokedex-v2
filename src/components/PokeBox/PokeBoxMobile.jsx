@@ -54,7 +54,7 @@ export function PokeBoxMobile({ pokeName }){
     if(poke){
         return(
             <PokeBoxMobileStyled>
-                <Link className='link' href={poke.name}>
+                <Link className='link' href={'pokemon/' + poke.name}>
                     <div className="info">
                         <div className="infoDex">
                             <span className='number'>#{id}</span>

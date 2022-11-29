@@ -45,7 +45,7 @@ export function PokeBox({ pokeName }){
     if(poke){
         return(
             <PokeBoxStyled>
-                <Link href={poke.name}>
+                <Link href={'pokemon/' + poke.name}>
                     <div className="infoDex">
                         <span>{name}</span>
                         <span className='number'>#{id}</span>

@@ -22,6 +22,13 @@ const pokeObj = {
     pokemon: {
         name: '',
         sprites: {
+            versions: {
+                ['generation-viii']: {
+                    icons: {
+                        front_default: ''
+                    }
+                }
+            },
             other: {
                 ['official-artwork']: {
                     front_default: ''
@@ -31,7 +38,7 @@ const pokeObj = {
         types: []
     },
     specie: {
-
+        name: ''
     }
 }
 
@@ -51,8 +58,8 @@ export function getPokeList(){
     return getData(pokeApi.pokeList, pokeObj.pokeList).results;
 }
 
-export function getPokemon(name){
-    return getData(pokeApi.pokemon+name, pokeObj.pokemon);
+export function getPokemon(poke){
+    return getData(pokeApi.pokemon+poke, pokeObj.pokemon)
 }
 
 export function getSpecie(name){
