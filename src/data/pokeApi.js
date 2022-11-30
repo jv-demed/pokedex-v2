@@ -50,13 +50,23 @@ export function getData(link, obj){
     return data;
 }
 
+async function getData2(url){
+    return await fetch(url)
+        .then(res => res.json())
+        .then((res) => res);
+}
+
+export async function getPokeList(){
+    return await getData2(pokeApi.pokeList);
+}
+
 export function getPokedex(){
     return getData(pokeApi.pokedex, pokeObj.pokedex).pokemon_entries;
 }
 
-export function getPokeList(){
-    return getData(pokeApi.pokeList, pokeObj.pokeList).results;
-}
+// export function getPokeList(){
+//     return getData(pokeApi.pokeList, pokeObj.pokeList).results;
+// }
 
 export function getPokemon(poke){
     return getData(pokeApi.pokemon+poke, pokeObj.pokemon)

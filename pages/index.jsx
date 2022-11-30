@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { getPokeList } from '../src/data/pokeApi';
 import { SearchBar } from '../src/components/Headers/SearchBar';
 import { PokeList } from '../src/components/PokeList/PokeList';
+import axios from 'axios';
 
-export default function Home(){
+export default function Home({ pokeList }){
 
-    const pokeList = getPokeList();
+    //const pokeList = getPokeList();
     const [search, setSearch] = useState('');
 
     if(pokeList){
@@ -17,3 +18,12 @@ export default function Home(){
         )
     }
 }
+  
+export async function getStaticProps(){
+    const pokeList = await getPokeList();
+    return {
+        props: {
+            pokeList: pokeList.results
+        }
+    };
+};
